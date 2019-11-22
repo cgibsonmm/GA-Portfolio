@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import LandingCard from './components/LandingCard';
 import AboutMe from './components/AboutMe'
 import Prog from './components/Prog'
+import Portfolio from './components/Portfolio'
 
 const theme = createMuiTheme({
   palette: {
@@ -26,6 +27,7 @@ function App() {
           <LandingCard />
           <AboutMe />
           <Prog />
+          <Portfolio />
           <Footer />
         </div>
       </ThemeProvider>

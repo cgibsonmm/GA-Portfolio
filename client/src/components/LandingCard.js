@@ -20,7 +20,7 @@ const Box = posed.div({
 const useStyles = makeStyles({
   sliderBg:{
     height: '700px',
-    background: `url(${Background}) no-repeat center center fixed`,
+    background: `url(${Background}) no-repeat center center`,
     backgroundSize: 'cover',
   },
   filter:{

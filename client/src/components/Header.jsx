@@ -81,9 +81,11 @@ export default function Header() {
   const [linkStatus, setLinkStatus] = useState([{
       title: 'About Me',
       active: false,
+      target: "#about-me"
     },{
       title: 'Portfolio',
-      active: false
+      active: false,
+      target: "#portfolio"
     }
   ])
 
@@ -99,7 +101,8 @@ export default function Header() {
   function rightLinks(){
     return linkStatus.map((item, index) => (
       <Link
-        href="#about-me"
+        href={item.target}
+        offset="75"
         color="secondary"
         component={AnchorLink}
         className={item.active ? classes.active : classes.inactive}
