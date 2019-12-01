@@ -5,8 +5,14 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
-import Paper from '@material-ui/core/Paper'
+import CardContent from '@material-ui/core/CardContent'
+import Fade from '@material-ui/core/Fade'
+import IconButton from '@material-ui/core/IconButton'
+import Backdrop from '@material-ui/core/Backdrop'
+import { CardActionArea, Typography } from '@material-ui/core';
+import LinkIcon from '@material-ui/icons/Link';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import Link from '@material-ui/core/Link'
 
 
 const useStyles = makeStyles({
@@ -14,14 +20,15 @@ const useStyles = makeStyles({
     paddingTop: '56.25%'
   },
   modalImage: {
-    width: '50%'
+    width: '100%'
   },
   modal:{
-    height: '100px',
-  
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  paper: {
+    width: '75%'
   }
 })
 
@@ -41,6 +48,9 @@ export default function ProjectCard({project}) {
   return (
     <Grid item sm={12} md={6}>
       <Card>
+        <CardActionArea
+          onClick={handleOpen}
+        >
           <CardHeader
           title={project.title}
           subheader={project.tech.join(', ')}
@@ -49,16 +59,32 @@ export default function ProjectCard({project}) {
           image={project.image}
           className={classes.image}
         />
+        </CardActionArea>
+        <CardContent>
+          <Typography variant="body2">
+            {project.description}
+          </Typography>
+          <IconButton component={Link} target="blank" href={project.url}>
+            <LinkIcon/>
+          </IconButton>
+          <IconButton component={Link} target="blank" href={project.gitUrl}>
+            <GitHubIcon/>
+          </IconButton>
+        </CardContent>
         <Modal
           className={classes.modal}
           open={open}
           onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
         >
-          <Paper>
+          <Fade  in={open} className={classes.paper}>
             <img className={classes.modalImage} src={`${project.image}`} />
-          </Paper>
+          </Fade>
         </Modal>
-        <Button onClick={handleOpen}>Open Modal</Button>
       </Card>
     </Grid>
   )

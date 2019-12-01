@@ -4,8 +4,12 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import Hidden from '@material-ui/core/Hidden'
+import Drawer from '@material-ui/core/Drawer'
 import { makeStyles } from '@material-ui/core/styles';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Button from '@material-ui/core/Button'
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
   appBar: {
@@ -74,10 +78,14 @@ const useStyles = makeStyles({
     //   opacity: '1',
     //   width: '100%',
     //  }
+  },
+  leftPadding: {
+    paddingLeft: '10px'
   }
 });
 
 export default function Header() {
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const [linkStatus, setLinkStatus] = useState([{
       title: 'About Me',
       active: false,
@@ -86,6 +94,10 @@ export default function Header() {
       title: 'Portfolio',
       active: false,
       target: "#portfolio"
+    },{
+      title: "Contact Me",
+      active: false,
+      target: '#contact'
     }
   ])
 
@@ -98,6 +110,14 @@ export default function Header() {
     setLinkStatus(links)
   }
 
+  function handleDrawOpen(){
+    setDrawerOpen(true)
+  }
+
+  function handleDrawClose(){
+    setDrawerOpen(false)
+  }
+
   function rightLinks(){
     return linkStatus.map((item, index) => (
       <Link
@@ -105,8 +125,8 @@ export default function Header() {
         offset="75"
         color="secondary"
         component={AnchorLink}
-        className={item.active ? classes.active : classes.inactive}
-        onClick={()=> markActive(index)}
+        className={[(item.active ? classes.active : classes.inactive), classes.leftPadding ]}
+        onClick={()=> markActive(index), handleDrawClose}
         key={`nav-link-${index}`}
         >
         {item.title}
@@ -126,14 +146,26 @@ export default function Header() {
                   COREY GIBSON
                 </Typography>
               </AnchorLink>
-              <div className="right-bar">
-                {rightLinks()}
-              </div>
+              <Hidden smDown>
+                <div className="right-bar">
+                  {rightLinks()}
+                </div>
+              </Hidden>
+              <Hidden mdUp>
+                <Button onClick={handleDrawOpen}><MenuIcon/></Button>
+              </Hidden>
             </Toolbar>
           </Container>
         </AppBar>
         <Toolbar/>
       </nav>
+      <Drawer className={classes.leftPadding}
+        open={drawerOpen}
+        onClose={handleDrawClose}
+        anchor="top"
+        >
+        {rightLinks()}
+      </Drawer>
     </header>
   );
 }

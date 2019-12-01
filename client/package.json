@@ -5,6 +5,7 @@
   "proxy": "http://127.0.0.1:3000",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
     "font-mfizz": "^2.4.1",
     "react": "^16.12.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
