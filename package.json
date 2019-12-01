@@ -1,9 +1,9 @@
 {
-  "name": "Corey Gibson Portfolio",
+  "name": "CoreyGibsonPortfolio",
   "license": "MIT",
   "engines": {
-    "node": "10.15.3",
-    "yarn": "1.15.2"
+    "node": "13.0.1",
+    "yarn": "1.19.0"
   },
   "scripts": {
     "build": "yarn --cwd client install && yarn --cwd client build",
