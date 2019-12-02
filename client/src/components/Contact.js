@@ -41,7 +41,7 @@ export default function Contact() {
         <Grid className={classes.margin} container>
           <Grid className={classes.grid}  item xs="12">
               <MyLocationIcon/>
-              <Typography variant="h6">
+              <Typography variant="">
                 Queens, NY
               </Typography>
             </Grid>
@@ -52,7 +52,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/corey-gibson/"
               >
                 <LinkedInIcon/>
-                <Typography variant="h6">
+                <Typography variant="">
                   Corey-Gibson
                 </Typography>
             </Link>
@@ -64,7 +64,7 @@ export default function Contact() {
               target="blank"
               >
               <EmailIcon />
-              <Typography variant="h6">
+              <Typography variant="">
                 cgibsonmmdev@gmail.com
               </Typography>
             </Link>

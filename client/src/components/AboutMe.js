@@ -4,6 +4,9 @@ import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Divider from './Divider'
 import MyPhoto from './MyPhoto'
+import aboutMe from '../data/AboutMe'
+import Grid from '@material-ui/core/Grid'
+
 
 
 const useStyles = makeStyles({
@@ -12,34 +15,48 @@ const useStyles = makeStyles({
     paddingBottom: '90px',
     position: 'relative',
   },
-  row:{
-    marginTop: '50px',
-    display: 'flex',
-    padding: '0 24px',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+  marginTops:{
+    marginTop: '50px'
   },
-  left:{
-    width: '40%'
-  }
+  // row:{
+  //   marginTop: '50px',
+  //   display: 'flex',
+  //   padding: '0 24px',
+  //   justifyContent: 'space-around',
+  //   alignItems: 'center'
+  // },
+  // left:{
+  //   width: '40%'
+  // }
 })
 
 export default function AboutMe() {
   const classes = useStyles()
+
+  function aboutMeText(){
+    return aboutMe.map((p, i) => (
+      <Grid item sm="12">
+        <Typography paragraph gutterBottom={true} key={i} variant="body1">
+          {p}
+        </Typography>
+      </Grid>
+    ))
+  }
   return (
     <Container className={classes.aboutMe} maxWidth='lg'>
       <Typography id="about-me" variant="h4" align='center'>
         About Me
       </Typography>
       <Divider />
-      <div className={classes.row}>
-        <Typography className={[classes.left, classes.margin]} variant="body1">
-          A hard-working developer that takes pride in high-quality code built with an Agile workflow. I strive to utilize best practices such as TDD/BDD. Coming from eight-plus years in EMS I have a strong working knowledge of decision making, problem- solving in high-stress environments, and working as a team to accomplish a task or goal.
-        </Typography>
-        <div className="right">
+      <Grid className={classes.marginTops} container spacing="3">
+        <Grid item align="center" xs="12" md="6">
           <MyPhoto/>
-        </div>
-      </div>
+        </Grid>
+        <Grid item md="6">
+          {aboutMeText()}
+        </Grid>
+      </Grid>
+        
     </Container>
   )
 }
