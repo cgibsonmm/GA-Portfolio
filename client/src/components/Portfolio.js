@@ -5,9 +5,6 @@ import Container from '@material-ui/core/Container';
 import Divider from './Divider';
 import ProjectCard from './ProjectCard'
 import Grid from '@material-ui/core/Grid'
-import Map from '../images/map.png'
-import Handoff from '../images/handoff.png'
-import TheHub from '../images/thehub.png';
 import projects from '../data/projects'
 
 const useStyles = makeStyles({

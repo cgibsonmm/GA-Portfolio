@@ -126,7 +126,7 @@ export default function Header() {
         color="secondary"
         component={AnchorLink}
         className={[(item.active ? classes.active : classes.inactive), classes.leftPadding ]}
-        onClick={()=> markActive(index), handleDrawClose}
+        onClick={()=> handleDrawClose()}
         key={`nav-link-${index}`}
         >
         {item.title}

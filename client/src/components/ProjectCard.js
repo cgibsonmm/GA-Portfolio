@@ -82,7 +82,7 @@ export default function ProjectCard({project}) {
           }}
         >
           <Fade  in={open} className={classes.paper}>
-            <img className={classes.modalImage} src={`${project.image}`} />
+            <img className={classes.modalImage} src={`${project.image}`} alt={project.title} />
           </Fade>
         </Modal>
       </Card>
