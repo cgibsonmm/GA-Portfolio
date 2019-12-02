@@ -18,16 +18,9 @@ const useStyles = makeStyles({
   marginTops:{
     marginTop: '50px'
   },
-  // row:{
-  //   marginTop: '50px',
-  //   display: 'flex',
-  //   padding: '0 24px',
-  //   justifyContent: 'space-around',
-  //   alignItems: 'center'
-  // },
-  // left:{
-  //   width: '40%'
-  // }
+  alignPhoto:{
+    alignSelf: 'center'
+  }
 })
 
 export default function AboutMe() {
@@ -49,7 +42,7 @@ export default function AboutMe() {
       </Typography>
       <Divider />
       <Grid className={classes.marginTops} container spacing="3">
-        <Grid item align="center" xs="12" md="6">
+        <Grid item className={classes.alignPhoto} align="center" xs="12" md="6">
           <MyPhoto/>
         </Grid>
         <Grid item md="6">
