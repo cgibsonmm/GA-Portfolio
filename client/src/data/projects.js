@@ -24,7 +24,15 @@ const projects = [
   },
   {
     title: "Tadpole",
-    tech: ["React.js", "HTML5", "CSS3", "Axios", "Node.js", "Express.js", "PG"],
+    tech: [
+      "React.js",
+      "HTML5",
+      "CSS3",
+      "Axios",
+      "Node.js",
+      "Express.js",
+      "Postgresql",
+    ],
     description:
       "A Full Stake Node, Express, PG, and React application that helps a user to tailor their own brand statement",
     image: Tadpole,
